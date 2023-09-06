@@ -1,4 +1,19 @@
 {
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "fragment": "Fragment",
+      "version": "detect",
+      "flowVersion": "0.53"
+    }
+  },
   "root": true,
   "env": {
     "browser": true,
@@ -9,15 +24,18 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
   ],
   "ignorePatterns": ["dist", ".eslintrc.json"],
-  "parser": "@typescript-eslint/parser",
   "rules": {
     "react-refresh/only-export-components": [
       "warn",
       { "allowConstantExport": true }
     ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
     "prefer-template":"error",
         "prettier/prettier": ["error", { "endOfLine": "auto" }],
         "prefer-destructuring": ["error", {
