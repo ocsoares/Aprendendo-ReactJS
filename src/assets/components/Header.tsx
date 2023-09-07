@@ -1,4 +1,5 @@
 import { Children } from "./Children";
+import "./Header.css";
 
 interface IHeaderProps {
   title: string;
@@ -10,8 +11,12 @@ export function Header(props: IHeaderProps) {
 
   return (
     <div>
-      <h1 style={{ color: "darkcyan" }}>{title}</h1>
-      <span style={{ color: "firebrick" }}>{subtitle}</span>
+      <h1 style={{ color: "darkcyan" }} className="Header">
+        {title}
+      </h1>
+      <span style={{ color: "firebrick" }} className="Header">
+        {subtitle}
+      </span>
       <Children />
       <Children />
       <Children />
