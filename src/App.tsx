@@ -1,34 +1,33 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+// import { useState } from "react";
+
+import { Children } from "./assets/components/Children";
+import { Header } from "./assets/components/Header";
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      {/* <Header
+        title={{ text: "Meu primeiro header React", color: "darkcyan" }}
+        subtitle={{ text: "apenas um subtitulo...", color: "firebrick" }}
+      /> */}
+
+      <Header
+        title="Meu primeiro header React"
+        subtitle="apenas um subtitulo..."
+      />
+      <Header title="Qualquer coisa" subtitle="outra coisa kkk">
+        <Children />
+        <Children />
+        <Children />
+      </Header>
+      <Header title="É isso ai mesmo" subtitle="seila" />
+      <Header
+        title="Apenas um título normal"
+        subtitle="escrevi qualquer coisa"
+      />
+    </div>
   );
 }
 
