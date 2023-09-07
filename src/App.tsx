@@ -7,20 +7,21 @@ function App() {
 
   return (
     <div>
-      {/* <Header
-        title={{ text: "Meu primeiro header React", color: "darkcyan" }}
-        subtitle={{ text: "apenas um subtitulo...", color: "firebrick" }}
-      /> */}
-
       <Header
         title="Meu primeiro header React"
         subtitle="apenas um subtitulo..."
+        variant="small"
       />
-      <Header title="Qualquer coisa" subtitle="outra coisa kkk" />
-      <Header title="É isso ai mesmo" subtitle="seila" />
+      <Header
+        title="Qualquer coisa"
+        subtitle="outra coisa kkk"
+        variant="medium"
+      />
+      <Header title="É isso ai mesmo" subtitle="seila" variant="large" />
       <Header
         title="Apenas um título normal"
         subtitle="escrevi qualquer coisa"
+        variant="big-large"
       />
     </div>
   );

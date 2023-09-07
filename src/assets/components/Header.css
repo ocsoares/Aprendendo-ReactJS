@@ -1,5 +1,23 @@
-.Header {
+.Header.small {
+    font-size: small;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+}
+
+.Header.medium {
+    font-size: medium;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+}
+
+.Header.large {
     font-size: x-large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+}
+
+.Header.big-large {
+    font-size: xx-large;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     font-style: oblique;
 }
