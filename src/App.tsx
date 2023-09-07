@@ -8,19 +8,8 @@ function App() {
   return (
     <div>
       <Header
-        title="Meu primeiro header React"
-        subtitle="apenas um subtitulo..."
-        variant="small"
-      />
-      <Header
-        title="Qualquer coisa"
-        subtitle="outra coisa kkk"
-        variant="medium"
-      />
-      <Header title="É isso ai mesmo" subtitle="seila" variant="large" />
-      <Header
-        title="Apenas um título normal"
-        subtitle="escrevi qualquer coisa"
+        title="Título da página"
+        subtitle="Subtítulo da página"
         variant="big-large"
       />
     </div>
