@@ -1,6 +1,5 @@
 // import { useState } from "react";
 
-import { Children } from "./assets/components/Children";
 import { Header } from "./assets/components/Header";
 
 function App() {
@@ -17,11 +16,7 @@ function App() {
         title="Meu primeiro header React"
         subtitle="apenas um subtitulo..."
       />
-      <Header title="Qualquer coisa" subtitle="outra coisa kkk">
-        <Children />
-        <Children />
-        <Children />
-      </Header>
+      <Header title="Qualquer coisa" subtitle="outra coisa kkk" />
       <Header title="É isso ai mesmo" subtitle="seila" />
       <Header
         title="Apenas um título normal"
