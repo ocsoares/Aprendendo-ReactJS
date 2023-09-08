@@ -1,23 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 
-let count = 0;
+// let countClick = 0;
 
 export function Button() {
-  const onClickedEvent = (
+  // React Hook = Funções do React que servem para ADMINISTRAR o
+  // Estado de um Componente, por exemplo o useState !!!
+
+  // Permite GUARDAR uma Informação especificada que vai poder ser ATUALIZADA, e
+  // sempre que essa Informação for Atualizada, vai REENDERIZAR no HTML, para poder
+  // mostrar essa nova Informação !!!
+  // ---------------------------------------
+  // Colocar dentro do () o Valor INICIAL a ser Mostrado !!!
+  // -------------------------------------------------------
+  // O useState retorna um ARRAY, que retorna o Valor ATUAL no momento da Reenderização e
+  // outro que retorna uma Função que SETA um NOVO Valor para o Próprio Valor !!!
+  const [countClick, setCountClick] = useState(0);
+
+  const incrementClickCount = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
   ) => {
-    console.log("CLICADO !!:", { count, event });
-    count++;
+    console.log("INCREMENTADO !!:", { countClick, event });
+    setCountClick(countClick + 1);
+  };
+
+  const resetClickCount = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    console.log("RESETADO !!:", { countClick, event });
+    setCountClick(0);
   };
 
   return (
     <div>
-      {/* O "count" dentro de "<p>" NÃO vai ser Alterado, porque o HTML é carregado na página UMA
-      vez, então DESSA FORMA o React NÃO entende que o valor de "count" foi alterado, ou seja,
-      ele fica FIXO !!! */}
-      <p>Números de cliques: {count}</p>
-      <button onClick={onClickedEvent}>
-        Clique aqui e veja algo acontecer
+      <p>Números de cliques: {countClick}</p>
+      <button onClick={incrementClickCount} style={{ display: "block" }}>
+        Clique aqui para INCREMENTAR o contador de cliques
+      </button>
+
+      <button
+        onClick={resetClickCount}
+        style={{ display: "block", marginTop: "2em" }}
+      >
+        Clique aqui para RESETAR o contador de cliques
       </button>
     </div>
   );
