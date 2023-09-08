@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button as ButtonMUI } from "@mui/material";
 
 // let countClick = 0;
 
@@ -33,16 +34,21 @@ export function Button() {
   return (
     <div>
       <p>Números de cliques: {countClick}</p>
-      <button onClick={incrementClickCount} style={{ display: "block" }}>
+      <ButtonMUI
+        variant="contained"
+        onClick={incrementClickCount}
+        style={{ display: "block" }}
+      >
         Clique aqui para INCREMENTAR o contador de cliques
-      </button>
+      </ButtonMUI>
 
-      <button
+      <ButtonMUI
+        variant="contained"
         onClick={resetClickCount}
         style={{ display: "block", marginTop: "2em" }}
       >
         Clique aqui para RESETAR o contador de cliques
-      </button>
+      </ButtonMUI>
     </div>
   );
 }
