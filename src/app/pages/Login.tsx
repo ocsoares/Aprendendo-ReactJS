@@ -1,10 +1,28 @@
 import { Button } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  // Sempre quando o Estado é ALTERADO, o React Renderiza a página INTEIRA, então comandos
+  // como esse Abaixo vão ser Efetuados SEMPRE que o Estado for alterado !
+  // -------------------------------------------------------------------------------------
+  // Para EVITAR isso, usa-se o hook "useEffect", que faz com que o Comando seja executado
+  // Apenas UMA vez quando a página for Renderizada pela PRIMEIRA vez !!!
+  // -------------------------------------------------------------------------------------
+  // Esse ARRAY depois da Função é usado para passar as DEPENDÊNCIAS do Effect !!
+  useEffect(() => {
+    alert("Testando o useEffect !");
+  }, []);
+
+  // Nesse caso do "useEffect" passando as DEPENDÊNCIAS para o Array da Função, vai Executar
+  // esses Comandos SEMPRE que o Email OU a Senha forem Alterados !!!
+  useEffect(() => {
+    console.log("Alterando o EMAIL:", email);
+    console.log("Alterando a SENHA:", password);
+  }, [email, password]);
 
   const routerNavigate = useNavigate();
 
