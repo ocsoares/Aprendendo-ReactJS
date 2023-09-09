@@ -1,13 +1,9 @@
-import { Header } from "./shared/components/Header";
+import { Routes } from "./routes/routes";
 
 function App() {
   return (
     <div>
-      <Header
-        title="Título da página"
-        subtitle="Subtítulo da página"
-        variant="big-large"
-      />
+      <Routes />
     </div>
   );
 }
