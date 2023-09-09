@@ -8,12 +8,12 @@ export function Button() {
   // Estado de um Componente, por exemplo o useState !!!
 
   // Permite GUARDAR uma Informação especificada que vai poder ser ATUALIZADA, e
-  // sempre que essa Informação for Atualizada, vai REENDERIZAR no HTML, para poder
+  // sempre que essa Informação for Atualizada, vai RENDERIZAR no HTML, para poder
   // mostrar essa nova Informação !!!
   // ---------------------------------------
   // Colocar dentro do () o Valor INICIAL a ser Mostrado !!!
   // -------------------------------------------------------
-  // O useState retorna um ARRAY, que retorna o Valor ATUAL no momento da Reenderização e
+  // O useState retorna um ARRAY, que retorna o Valor ATUAL no momento da Renderização e
   // outro que retorna uma Função que SETA um NOVO Valor para o Próprio Valor !!!
   const [countClick, setCountClick] = useState(0);
 
