@@ -1,21 +1,10 @@
 import { Button } from "@mui/material";
-import React, { useCallback, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // O hook "useCallback" ARMAZENA a CONSTRUÇÃO de FUNÇÕES, para impedir que elas
-  // sejam ser Construídas a cada RENDERIZAÇÃO, dependendo da Complexidade da Função
-  // isso ajuda no Desempenho da Aplicação !!!
-  const handleEmailButtonOnChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setEmail(event.target.value);
-      console.log(event.target.value);
-    },
-    [],
-  );
 
   const routerNavigate = useNavigate();
 
@@ -49,7 +38,7 @@ export const Login = () => {
             // ---------------------------------------------------------------------------------------
             // Sempre que o Valor INICIAL do "email" mudar, no caso uma String vazia (""), vai MUDAR o
             // valor Inicial para o Valor que foi DIGITADO, o que possibilita pegar o Input FINAL !!
-            onChange={(event) => handleEmailButtonOnChange(event)}
+            onChange={(event) => setEmail(event.target.value)}
           />
         </div>
 
