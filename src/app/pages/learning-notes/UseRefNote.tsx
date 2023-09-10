@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { useRef, useState } from "react";
 
-export const Notes = () => {
+export const UseRefNote = () => {
   const [counter, setCounter] = useState(0);
 
   const handleUseStateButton = () => {
