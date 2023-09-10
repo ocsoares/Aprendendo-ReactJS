@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
+import { Notes } from "../pages/Notes";
 
 export const Routes = () => {
   return (
@@ -13,6 +14,7 @@ export const Routes = () => {
       <ReactRouter>
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/notes" element={<Notes />} />
 
         {/* Toda Rota que NÃO for especificada A CIMA será REDIRECIONADA para a página "home" !!!  */}
         <Route path="*" element={<Navigate to="home" />} />
