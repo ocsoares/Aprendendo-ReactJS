@@ -4,7 +4,7 @@
 
 import { PropsWithChildren, createContext } from "react";
 
-interface ILoggedUserEmailContextData {
+export interface ILoggedUserEmailContextData {
   loggedUserEmail: string;
 }
 
