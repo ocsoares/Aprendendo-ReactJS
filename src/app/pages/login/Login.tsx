@@ -1,6 +1,7 @@
-import { Button } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { InputLogin } from "./components/InputLogin";
+import { ButtonLogin } from "./components/ButtonLogin";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -23,21 +24,15 @@ export const Login = () => {
     <div>
       <h1>Rota de Login</h1>
 
-      <Button variant="contained" onClick={handleClick}>
-        Página inicial
-      </Button>
+      <ButtonLogin text="Página inicial" onClick={handleClick} />
 
       <div>
         <div style={{ marginTop: "2em" }}>
           <span>Email</span>
           <br />
-          <input
+          <InputLogin
             type="email"
-            placeholder="Digite seu email"
-            value={email} // Vincula o Valor do Campo para ser CONTROLADA pelo React
-            // ---------------------------------------------------------------------------------------
-            // Sempre que o Valor INICIAL do "email" mudar, no caso uma String vazia (""), vai MUDAR o
-            // valor Inicial para o Valor que foi DIGITADO, o que possibilita pegar o Input FINAL !!
+            value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
         </div>
@@ -45,23 +40,17 @@ export const Login = () => {
         <div style={{ marginTop: "1em" }}>
           <span>Senha</span>
           <br />
-          <input
+          <InputLogin
             type="password"
-            placeholder="Digite sua senha"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
       </div>
 
-      <Button
-        variant="contained"
-        type="button"
-        onClick={handleLogin}
-        style={{ marginTop: "2em" }}
-      >
-        Entrar
-      </Button>
+      <br />
+
+      <ButtonLogin text="Entrar" type="button" onClick={handleLogin} />
     </div>
   );
 };
