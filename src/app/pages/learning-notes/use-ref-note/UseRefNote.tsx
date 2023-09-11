@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import { useRef, useState } from "react";
+import InputUseRef from "./components/InputUseRef";
 
 export const UseRefNote = () => {
   const [counter, setCounter] = useState(0);
@@ -70,10 +71,12 @@ export const UseRefNote = () => {
       <br />
       <br />
 
-      <label>
+      {/* <label>
         <span>Senha</span>
         <input type="password" ref={inputPasswordRef}></input>
-      </label>
+      </label> */}
+
+      <InputUseRef type="password" ref={inputPasswordRef} />
 
       <Button variant="contained" onClick={focusUseRef}>
         Clique para FOCAR no Input da Senha

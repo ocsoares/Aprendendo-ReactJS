@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { Home } from "../pages/Home";
 import { Login } from "../pages/login/Login";
-import { UseRefNote } from "../pages/learning-notes/UseRefNote";
+import { UseRefNote } from "../pages/learning-notes/use-ref-note/UseRefNote";
 
 export const Routes = () => {
   return (
