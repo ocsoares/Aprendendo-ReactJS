@@ -1,10 +1,12 @@
 import { Routes } from "./routes/Routes";
+import { LoggedUserEmailProvider } from "./shared/contexts/LoggedUserEmail";
 
 function App() {
   return (
-    <div>
+    // Aplicando o "LoggedUserEmailContext" para os FILHOS !!
+    <LoggedUserEmailProvider>
       <Routes />
-    </div>
+    </LoggedUserEmailProvider>
   );
 }
 
