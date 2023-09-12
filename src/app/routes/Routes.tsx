@@ -12,6 +12,7 @@ import { UseContextNote } from "../pages/learning-notes/use-context/UseContextNo
 import { CustomHookNote } from "../pages/learning-notes/custom-hook/CustomHookNote";
 import { FunctionsInUseContextNote } from "../pages/learning-notes/use-context/functions-in-use-context/FunctionsInUseContextNote";
 import { StatesInUseContextNote } from "../pages/learning-notes/use-context/states-in-use-context/StatesInUseContextNote";
+import { ListsNote } from "../pages/learning-notes/lists/ListsNote";
 
 export const Routes = () => {
   return (
@@ -32,6 +33,7 @@ export const Routes = () => {
           path="/notes/states-in-use-context"
           element={<StatesInUseContextNote />}
         />
+        <Route path="/notes/lists" element={<ListsNote />} />
 
         {/* Toda Rota que NÃO for especificada A CIMA será REDIRECIONADA para a página "home" !!!  */}
         <Route path="*" element={<Navigate to="home" />} />
