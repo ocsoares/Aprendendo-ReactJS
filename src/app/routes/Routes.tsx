@@ -11,7 +11,7 @@ import { ChildrenNote } from "../pages/learning-notes/children/ChildrenNote";
 import { UseContextNote } from "../pages/learning-notes/use-context/UseContextNote";
 import { CustomHookNote } from "../pages/learning-notes/custom-hook/CustomHookNote";
 import { FunctionsInUseContextNote } from "../pages/learning-notes/use-context/functions-in-use-context/FunctionsInUseContextNote";
-import { StatesInUseContextNote } from "../pages/learning-notes/use-context/states-in-use-context/StatesInUseContext";
+import { StatesInUseContextNote } from "../pages/learning-notes/use-context/states-in-use-context/StatesInUseContextNote";
 
 export const Routes = () => {
   return (
