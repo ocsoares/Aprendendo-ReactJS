@@ -10,7 +10,7 @@ import { UseRefNote } from "../pages/learning-notes/use-ref-note/UseRefNote";
 import { ChildrenNote } from "../pages/learning-notes/children/ChildrenNote";
 import { UseContextNote } from "../pages/learning-notes/use-context/UseContextNote";
 import { CustomHookNote } from "../pages/learning-notes/custom-hook/CustomHookNote";
-import { FunctionsInUseContextNote } from "../pages/learning-notes/functions-in-use-context/FunctionsInUseContextNote";
+import { FunctionsInUseContextNote } from "../pages/learning-notes/use-context/functions-in-use-context/FunctionsInUseContextNote";
 
 export const Routes = () => {
   return (
