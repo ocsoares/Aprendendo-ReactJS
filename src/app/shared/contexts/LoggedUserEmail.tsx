@@ -2,10 +2,11 @@
 // diversos Componentes DIFERENTES, SEM ter que precisar receber esse Valor como "props"
 // no Parâmetro !!!
 
-import { PropsWithChildren, createContext, useCallback } from "react";
+import { PropsWithChildren, createContext, useCallback, useState } from "react";
 
 export interface ILoggedUserEmailContextData {
   loggedUserEmail: string;
+  stateLoggedUserEmail: string;
   changeUserEmail: () => void;
 }
 
@@ -15,6 +16,12 @@ export const LoggedUserEmailContext =
   createContext<ILoggedUserEmailContextData>({} as ILoggedUserEmailContextData);
 
 export const LoggedUserEmailProvider = ({ children }: PropsWithChildren) => {
+  const [loggedUserEmail, setLoggedUserEmail] = useState("");
+
+  setTimeout(() => {
+    setLoggedUserEmail("statepedro901@gmail.com");
+  }, 3000);
+
   // É RECOMENDADO usar o useCallback() para Compartilhar FUNÇÕES no context !!!
   const handleChangeUserEmail = useCallback(() => {
     alert("Alterando o EMAIL !"); // Só um Exemplo, óbvio...
@@ -24,6 +31,7 @@ export const LoggedUserEmailProvider = ({ children }: PropsWithChildren) => {
     <LoggedUserEmailContext.Provider
       value={{
         loggedUserEmail: "pedrosilva1080@gmail.com",
+        stateLoggedUserEmail: loggedUserEmail,
         changeUserEmail: handleChangeUserEmail,
       }}
     >
