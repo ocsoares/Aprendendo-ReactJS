@@ -8,6 +8,8 @@ export const ListsNote = () => {
 
   const [list, setList] = useState<string[]>([`${nameList} 0`]);
 
+  // Usar useCallback() porque esse Componente VAI ser RENDERIZADO com Frequência,
+  // então usar esse hook ARMAZENA a Função para NÃO ficar Recriando a cada Renderização !!!
   const handleOnClick = useCallback((): void => {
     setCount((oldCount) => oldCount + 1);
 
