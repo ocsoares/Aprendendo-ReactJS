@@ -15,6 +15,7 @@ import { StatesInUseContextNote } from "../pages/learning-notes/use-context/stat
 import { ListsNote } from "../pages/learning-notes/lists/ListsNote";
 import { ListWithObjectsNote } from "../pages/learning-notes/lists/list-with-objects/ListWithObjectsNote";
 import { ConsumeAPINote } from "../pages/learning-notes/consume-api/ConsumeAPINote";
+import { StylesMaterialUINote } from "../pages/learning-notes/styles-materialui/StylesMaterialUINote";
 
 export const Routes = () => {
   return (
@@ -41,6 +42,10 @@ export const Routes = () => {
           element={<ListWithObjectsNote />}
         />
         <Route path="/notes/consume-api" element={<ConsumeAPINote />} />
+        <Route
+          path="/notes/styles-materialui"
+          element={<StylesMaterialUINote />}
+        />
 
         {/* Toda Rota que NÃO for especificada A CIMA será REDIRECIONADA para a página "home" !!!  */}
         <Route path="*" element={<Navigate to="home" />} />
