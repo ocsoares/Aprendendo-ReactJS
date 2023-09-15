@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { InputLogin } from "./components/InputLogin";
 import { ButtonLogin } from "./components/ButtonLogin";
+import { Button } from "../../shared/components/Button";
+import { useAppTheme } from "../../shared/hooks/UseAppTheme";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -20,8 +22,15 @@ export const Login = () => {
     console.log("Valor FINAL do Password:", password);
   };
 
+  const { toggleTheme } = useAppTheme();
+
   return (
     <div>
+      <Button
+        text="Clique aqui para ALTERAR o Tema de Cores !"
+        onClick={toggleTheme}
+      ></Button>
+
       <h1>Rota de Login</h1>
 
       <ButtonLogin text="Página inicial" onClick={handleClick} />
