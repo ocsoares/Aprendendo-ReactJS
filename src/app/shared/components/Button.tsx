@@ -1,15 +1,21 @@
 import { Button as ButtonMUI } from "@mui/material";
 
 interface IButtonProps {
+  type?: "contained" | "outlined" | "text";
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   text?: string;
   color?: "primary" | "secondary";
 }
 
-export function Button({ onClick, text, color }: IButtonProps) {
+export function Button({
+  type = "contained",
+  onClick,
+  text,
+  color,
+}: IButtonProps) {
   return (
     <div>
-      <ButtonMUI variant="contained" onClick={onClick} color={color}>
+      <ButtonMUI variant={type} onClick={onClick} color={color}>
         {text}
       </ButtonMUI>
     </div>
