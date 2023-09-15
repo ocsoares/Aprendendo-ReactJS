@@ -8,14 +8,12 @@ import {
 } from "react";
 import { DarkTheme } from "../themes/DarkTheme";
 import { LightTheme } from "../themes/LightTheme";
+import { Box } from "@mui/system";
 
 export interface IThemeContextData {
   themeName: "light" | "dark";
   toggleTheme: () => void;
 }
-
-import { Box } from "@mui/system";
-
 export const ThemeContext = createContext<IThemeContextData>(
   {} as IThemeContextData,
 );
