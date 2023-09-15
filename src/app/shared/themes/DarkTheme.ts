@@ -1,15 +1,14 @@
 import { createTheme } from "@mui/material";
-import { purple, teal, deepPurple, red } from "@mui/material/colors";
+import { purple, teal, deepPurple, grey } from "@mui/material/colors";
 
 export const DarkTheme = createTheme({
   palette: {
-    // Cores PRIMÁRIAS são as Cores PRINCIPAIS da Aplicação, como Botões !!
+    // Cores PRIMÁRIAS são as Cores PRINCIPAIS da Aplicação
     primary: {
-      main: purple["900"],
-      dark: purple["800"],
+      main: "#3D1870", // Cores por exemplo dos Botões !!
+      dark: "#250D46", // Cores por exemplo do HOVER dos Botões !!
       light: purple["500"],
-      // Para fazer CONTRASTE do TEXTO com a cor PRIMÁRIA !!!
-      contrastText: deepPurple["200"],
+      contrastText: grey["500"], // Cores por exemplo do TEXTO Dentro dos Botões !!
     },
     // Cores SECUNDÁRIAS são usadas em, por exemplo, Auto-Complete !!
     secondary: {
@@ -19,7 +18,7 @@ export const DarkTheme = createTheme({
       contrastText: deepPurple["200"],
     },
     background: {
-      default: red["600"],
+      default: "#1F1032",
       paper: "#FFFFFF", // Usado como Cores para CONTEÚDOS, como Cartões e Painéis !!
     },
   },
