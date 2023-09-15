@@ -1,9 +1,6 @@
-// Tema CLARO do MaterialUI !!
-
 import { createTheme } from "@mui/material";
-import { purple, teal, deepPurple } from "@mui/material/colors";
+import { purple, teal, deepPurple, red } from "@mui/material/colors";
 
-// Mudar as Cores !!!
 export const DarkTheme = createTheme({
   palette: {
     // Cores PRIMÁRIAS são as Cores PRINCIPAIS da Aplicação, como Botões !!
@@ -22,7 +19,7 @@ export const DarkTheme = createTheme({
       contrastText: deepPurple["200"],
     },
     background: {
-      default: "#F5F5F5",
+      default: red["600"],
       paper: "#FFFFFF", // Usado como Cores para CONTEÚDOS, como Cartões e Painéis !!
     },
   },
