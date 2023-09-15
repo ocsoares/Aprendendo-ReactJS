@@ -1,9 +1,6 @@
-// Tema CLARO do MaterialUI !!
-
 import { createTheme } from "@mui/material";
 import { purple, teal, deepPurple } from "@mui/material/colors";
 
-// Mudar as Cores !!
 export const LightTheme = createTheme({
   palette: {
     primary: {
