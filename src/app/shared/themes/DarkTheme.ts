@@ -19,7 +19,7 @@ export const DarkTheme = createTheme({
     },
     background: {
       default: "#1F1032",
-      paper: "#FFFFFF", // Usado como Cores para CONTEÚDOS, como Cartões e Painéis !!
+      paper: "#2C203B", // Usado como Cores para CONTEÚDOS, como Sidebars, Cartões e Painéis !!
     },
   },
 });
