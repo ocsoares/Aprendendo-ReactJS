@@ -9,12 +9,7 @@ interface IButtonProps {
 export function Button({ onClick, text, color }: IButtonProps) {
   return (
     <div>
-      <ButtonMUI
-        variant="contained"
-        onClick={onClick}
-        style={{ display: "block" }}
-        color={color}
-      >
+      <ButtonMUI variant="contained" onClick={onClick} color={color}>
         {text}
       </ButtonMUI>
     </div>
