@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Header } from "../shared/components/Header";
+import { Header } from "../shared/components/Header/Header";
 import { useState } from "react";
 import { Button } from "../shared/components/Button";
 import { useAppTheme } from "../shared/hooks/UseAppTheme";

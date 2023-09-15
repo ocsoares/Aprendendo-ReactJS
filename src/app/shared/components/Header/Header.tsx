@@ -1,4 +1,4 @@
-import { Children } from "./Children";
+import { Children } from "../Children";
 import "./Header.css";
 
 interface IHeaderProps {
