@@ -4,8 +4,8 @@ import { purple, teal, deepPurple } from "@mui/material/colors";
 export const LightTheme = createTheme({
   palette: {
     primary: {
-      main: purple["900"],
-      dark: purple["800"],
+      main: "#36175E",
+      dark: "#261042",
       light: purple["500"],
       contrastText: deepPurple["200"],
     },
@@ -16,7 +16,7 @@ export const LightTheme = createTheme({
       contrastText: deepPurple["200"],
     },
     background: {
-      default: "#F5F5F5",
+      default: "#43226D",
       paper: "#FFFFFF",
     },
   },
