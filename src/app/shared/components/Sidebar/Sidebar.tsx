@@ -10,6 +10,7 @@ import { PropsWithChildren } from "react";
 import { Box } from "@mui/system";
 import { Brightness4, Home } from "@mui/icons-material";
 import { AppIcon } from "./components/AppIcon";
+import { useSidebar } from "../../hooks/UseSidebar";
 
 export const Sidebar = ({ children }: PropsWithChildren) => {
   // Hook do MaterialUI para pegar o Tema ATUAL que está sendo Aplicado,
@@ -20,14 +21,20 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
     currentTheme.breakpoints.down("sm"),
   );
 
+  const { isSidebarOpen, toggleSidebarOpen } = useSidebar();
+
   return (
     // Quando NÃO vou usar Tags do HTML como "<p>" ou Elementos do HTML como
     // "styles" ou "onClick", usar esse Fragments do ReactJS "<>" ao INVÉS de
     // usar "<div>" !!!
     <>
       <Drawer
-        open={true}
+        // Com "open={isSidebarOpen}", se "isSmallerThanSmallScreen" for TRUE, vai FECHAR a Sidebar !!!
+        open={isSidebarOpen}
         variant={isSmallerThanSmallScreen ? "temporary" : "permanent"}
+        // Com "onClose={toggleSidebarOpen}", após ABERTO, se clicar em QUALQUER Lugar FORA da Sidebar irá
+        // FECHAR a Sidebar !!!
+        onClose={toggleSidebarOpen}
       >
         {/* CONTEÚDO da Sidebar !! */}
         {/* --------------------------------- */}
