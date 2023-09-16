@@ -1,7 +1,13 @@
-import { Avatar, Divider, Drawer, List, useTheme } from "@mui/material";
+import {
+  Avatar,
+  Divider,
+  Drawer,
+  List,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { PropsWithChildren } from "react";
 import { Box } from "@mui/system";
-import { deepOrange } from "@mui/material/colors";
 import { Brightness4, Home } from "@mui/icons-material";
 import { AppIcon } from "./components/AppIcon";
 
@@ -10,12 +16,19 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
   // se for "dark" pega o Tema "dark" e etc...
   const currentTheme = useTheme();
 
+  const isSmallerThanSmallScreen = useMediaQuery(
+    currentTheme.breakpoints.down("sm"),
+  );
+
   return (
     // Quando NÃO vou usar Tags do HTML como "<p>" ou Elementos do HTML como
     // "styles" ou "onClick", usar esse Fragments do ReactJS "<>" ao INVÉS de
     // usar "<div>" !!!
     <>
-      <Drawer open={true} variant="permanent">
+      <Drawer
+        open={true}
+        variant={isSmallerThanSmallScreen ? "temporary" : "permanent"}
+      >
         {/* CONTEÚDO da Sidebar !! */}
         {/* --------------------------------- */}
         {/* spacing = Unidades de Medidas PADRÃO do MaterialUI e Recomendadas,
@@ -36,16 +49,16 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
             alignItems={"center"}
             justifyContent={"center"}
           >
-            <Avatar
+            {/* <Avatar
               sx={{
                 height: currentTheme.spacing(7),
                 width: currentTheme.spacing(7),
               }}
             >
               P
-            </Avatar>
+            </Avatar> */}
 
-            <Avatar
+            {/* <Avatar
               sx={{
                 bgcolor: deepOrange[500],
                 height: currentTheme.spacing(7),
@@ -53,7 +66,7 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
               }}
             >
               N
-            </Avatar>
+            </Avatar> */}
 
             <Avatar
               src={`${import.meta.env.VITE_APP_URL}/assets/avatar1.png`}
@@ -89,9 +102,15 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
 
       {/* COMPONENTES Filhos !! */}
       {/* ------------------------------ */}
-      {/* Faz os Componentes Filhos irem um pouco para a DIREITA, para dar Espaço
-      para a Sidebar ABRIR ! */}
-      <Box height={"100vh"} marginLeft={currentTheme.spacing(28)}>
+      {/* marginLeft com spacing() = Faz os Componentes Filhos irem um pouco para a DIREITA, para
+      dar Espaço para a Sidebar ABRIR ! */}
+      {/* ---------------------------------------- */}
+      {/* OBS: Se "isSmallerThanSmallScreen" for TRUE e NÃO der esse Espaço pra DIREITA, vai dar o
+      Efeito de a Sidebar estar SOBRE a TELA !! */}
+      <Box
+        height={"100vh"}
+        marginLeft={isSmallerThanSmallScreen ? 0 : currentTheme.spacing(28)}
+      >
         {children}
       </Box>
     </>
