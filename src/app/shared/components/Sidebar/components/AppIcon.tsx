@@ -13,6 +13,7 @@ export const AppIcon = ({
 }: PropsWithChildren<IAppIconProps>) => {
   return (
     <ListItemButton>
+      {/* Colocar um COMPONENTE de Ícone do Próprio MaterialUI, exemplo "<Home />" !! */}
       <ListItemIcon sx={{ color }}>{children}</ListItemIcon>
       <ListItemText primary={text} />
     </ListItemButton>
