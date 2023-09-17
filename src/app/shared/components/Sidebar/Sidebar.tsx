@@ -6,7 +6,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import { Brightness4, Home } from "@mui/icons-material";
 import { AppIcon } from "./components/AppIcon";
@@ -17,11 +17,25 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
   // se for "dark" pega o Tema "dark" e etc...
   const currentTheme = useTheme();
 
+  const [wasClosed, setWasClosed] = useState(false);
+
   const isSmallerThanSmallScreen = useMediaQuery(
     currentTheme.breakpoints.down("sm"),
   );
 
   const { isSidebarOpen, toggleSidebarOpen } = useSidebar();
+
+  // Para FECHAR/ABRIR a Sidebar quando ela tiver no Tamanho de Tela PEQUENO (sm), para Permitir a
+  // RESPONSIVIDADE !
+  useEffect(() => {
+    if (isSmallerThanSmallScreen && isSidebarOpen) {
+      toggleSidebarOpen();
+      setWasClosed(true);
+    } else if (!isSmallerThanSmallScreen && wasClosed) {
+      toggleSidebarOpen();
+      setWasClosed(false);
+    }
+  }, [isSmallerThanSmallScreen, isSidebarOpen, toggleSidebarOpen, wasClosed]);
 
   return (
     // Quando NÃO vou usar Tags do HTML como "<p>" ou Elementos do HTML como
@@ -29,9 +43,10 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
     // usar "<div>" !!!
     <>
       <Drawer
-        // Com "open={isSidebarOpen}", se "isSmallerThanSmallScreen" for TRUE, vai FECHAR a Sidebar !!!
+        // O "isSidebarOpen" será ALTERADO com um BOTÃO com a Função "toggleSidebarOpen", em que "isSidebarOpen"
+        // Começa por Padrão FECHADO !!!
         open={isSidebarOpen}
-        variant={isSmallerThanSmallScreen ? "temporary" : "permanent"}
+        variant={"temporary"}
         // Com "onClose={toggleSidebarOpen}", após ABERTO, se clicar em QUALQUER Lugar FORA da Sidebar irá
         // FECHAR a Sidebar !!!
         onClose={toggleSidebarOpen}
@@ -108,18 +123,7 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
       </Drawer>
 
       {/* COMPONENTES Filhos !! */}
-      {/* ------------------------------ */}
-      {/* marginLeft com spacing() = Faz os Componentes Filhos irem um pouco para a DIREITA, para
-      dar Espaço para a Sidebar ABRIR ! */}
-      {/* ---------------------------------------- */}
-      {/* OBS: Se "isSmallerThanSmallScreen" for TRUE e NÃO der esse Espaço pra DIREITA, vai dar o
-      Efeito de a Sidebar estar SOBRE a TELA !! */}
-      <Box
-        height={"100vh"}
-        marginLeft={isSmallerThanSmallScreen ? 0 : currentTheme.spacing(28)}
-      >
-        {children}
-      </Box>
+      <Box height={"100vh"}>{children}</Box>
     </>
   );
 };

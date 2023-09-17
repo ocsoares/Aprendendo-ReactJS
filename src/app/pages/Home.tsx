@@ -48,8 +48,6 @@ export const Home = () => {
 
       <br />
 
-      {/* Isso só funciona POR ENQUANTO quando a Tela for MENOR que "small", se for MENOR 
-      irá FECHAR, então Usar esse Botão para ABRIR !! */}
       <Button
         text="Clique aqui para ABRIR/FECHAR a Sidebar !"
         onClick={toggleSidebarOpen}
