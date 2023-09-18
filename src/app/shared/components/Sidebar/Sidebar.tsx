@@ -120,11 +120,19 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
             {/* ---------------------------------------------------------------------------------- */}
             {/* "color" Aqui = Cor do TEXTO e de quando APERTA na SESSÃO do Ícone*/}
             <List component={"nav"} sx={{ color: "yellow" }}>
-              <AppIcon text="Home" onClick={() => handleIconOnClick("/home")}>
+              <AppIcon
+                text="Home"
+                onClick={() => handleIconOnClick("/home")}
+                selectedOnTheRoute="/home"
+              >
                 <Home />
               </AppIcon>
 
-              <AppIcon text="Login" onClick={() => handleIconOnClick("/login")}>
+              <AppIcon
+                text="Login"
+                onClick={() => handleIconOnClick("/login")}
+                selectedOnTheRoute="/login"
+              >
                 <Login />
               </AppIcon>
 
