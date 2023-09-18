@@ -1,3 +1,4 @@
+import { BrowserRouter } from "react-router-dom";
 import { Routes } from "./routes/Routes";
 import { Sidebar } from "./shared/components/Sidebar/Sidebar";
 import { LoggedUserEmailProvider } from "./shared/contexts/LoggedUserEmail";
@@ -14,9 +15,11 @@ function App() {
         <LoggedUserEmailProvider>
           {/* Componente "Sidebar" vai ser o Elemento PAI das Rotas (children), pois
         isso vai APLICAR a Sidebar para TODAS as Rotas !! */}
-          <Sidebar>
-            <Routes />
-          </Sidebar>
+          <BrowserRouter>
+            <Sidebar>
+              <Routes />
+            </Sidebar>
+          </BrowserRouter>
         </LoggedUserEmailProvider>
       </SidebarProvider>
     </AppThemeProvider>
