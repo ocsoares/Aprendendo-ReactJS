@@ -8,9 +8,10 @@ import {
 } from "@mui/material";
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Box } from "@mui/system";
-import { Brightness4, Home } from "@mui/icons-material";
+import { Home, Login } from "@mui/icons-material";
 import { AppIcon } from "./components/AppIcon";
 import { useSidebar } from "../../hooks/UseSidebar";
+import { useNavigate } from "react-router-dom";
 
 export const Sidebar = ({ children }: PropsWithChildren) => {
   // Hook do MaterialUI para pegar o Tema ATUAL que está sendo Aplicado,
@@ -24,6 +25,15 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
   );
 
   const { isSidebarOpen, toggleSidebarOpen } = useSidebar();
+
+  const navigateToRoute = useNavigate();
+
+  // NÃO usei o "useCallback()" hook aqui porque essa é uma Função que NÃO vai ser usada em vários Lugares,
+  // apenas no BOTÃO e em teoria POUCAS VEZES, porque ao CLICAR no Botão será REDIRECIONADO para Outra ROTA !!!
+  const handleIconOnClick = (route: string): void => {
+    navigateToRoute(route);
+    toggleSidebarOpen();
+  };
 
   // Para FECHAR/ABRIR a Sidebar quando ela tiver no Tamanho de Tela PEQUENO (sm), para Permitir a
   // RESPONSIVIDADE !
@@ -110,13 +120,17 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
             {/* ---------------------------------------------------------------------------------- */}
             {/* "color" Aqui = Cor do TEXTO e de quando APERTA na SESSÃO do Ícone*/}
             <List component={"nav"} sx={{ color: "yellow" }}>
-              <AppIcon text="Home">
+              <AppIcon text="Home" onClick={() => handleIconOnClick("/home")}>
                 <Home />
               </AppIcon>
 
-              <AppIcon text="Toggle item">
-                <Brightness4 />
+              <AppIcon text="Login" onClick={() => handleIconOnClick("/login")}>
+                <Login />
               </AppIcon>
+
+              {/* <AppIcon text="Toggle item">
+                <Brightness4 />
+              </AppIcon> */}
             </List>
           </Box>
         </Box>
