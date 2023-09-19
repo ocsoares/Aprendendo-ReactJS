@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Box } from "@mui/system";
-import { Home, Login } from "@mui/icons-material";
+import { DensitySmall, Home, Login } from "@mui/icons-material";
 import { AppIcon } from "./components/AppIcon";
 import { useSidebar } from "../../hooks/UseSidebar";
 import { useNavigate } from "react-router-dom";
@@ -32,7 +32,9 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
   // apenas no BOTÃO e em teoria POUCAS VEZES, porque ao CLICAR no Botão será REDIRECIONADO para Outra ROTA !!!
   const handleIconOnClick = (route: string): void => {
     navigateToRoute(route);
-    toggleSidebarOpen();
+
+    // Descomentar se quiser FECHAR a Sidebar depois de NAVEGAR para outra Rota !!
+    // toggleSidebarOpen();
   };
 
   // Para FECHAR/ABRIR a Sidebar quando ela tiver no Tamanho de Tela PEQUENO (sm), para Permitir a
@@ -52,6 +54,14 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
     // "styles" ou "onClick", usar esse Fragments do ReactJS "<>" ao INVÉS de
     // usar "<div>" !!!
     <>
+      {/* Como esse Componente "Sidebar" vai ser o Elemento PAI de TODAS as ROTAS, esse Botão Vai aparecer no
+        TOPO da TELA de TODAS as Rotas !!! */}
+      <AppIcon text="Abrir Sidebar" onClick={toggleSidebarOpen}>
+        <DensitySmall />
+      </AppIcon>
+
+      <br />
+
       <Drawer
         // O "isSidebarOpen" será ALTERADO com um BOTÃO com a Função "toggleSidebarOpen", em que "isSidebarOpen"
         // Começa por Padrão FECHADO !!!
