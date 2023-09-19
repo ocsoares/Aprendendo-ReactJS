@@ -6,7 +6,7 @@ interface IAppIconProps {
   color?: string;
   text: string;
   onClick: () => void;
-  selectedOnTheRoute: string;
+  selectedOnTheRoute?: string;
 }
 
 export const AppIcon = ({
