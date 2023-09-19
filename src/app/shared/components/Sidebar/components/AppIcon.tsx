@@ -10,7 +10,7 @@ interface IAppIconProps {
 }
 
 export const AppIcon = ({
-  color = "red",
+  color = "#A689CA",
   text,
   onClick,
   selectedOnTheRoute,
@@ -22,6 +22,9 @@ export const AppIcon = ({
     <ListItemButton
       onClick={onClick}
       selected={currentRoute === selectedOnTheRoute ? true : false}
+      sx={{
+        color: currentRoute === selectedOnTheRoute ? "white" : "#6C469C", // Cor do texto
+      }}
     >
       {/* Colocar um COMPONENTE de Ícone do Próprio MaterialUI, exemplo "<Home />" !! */}
       <ListItemIcon sx={{ color }}>{children}</ListItemIcon>

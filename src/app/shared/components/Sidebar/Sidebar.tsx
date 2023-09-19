@@ -119,7 +119,7 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
             SEMANTICAMENTE Correto, usar por exemplo "nav", "ul", "ol" etc... !!! */}
             {/* ---------------------------------------------------------------------------------- */}
             {/* "color" Aqui = Cor do TEXTO e de quando APERTA na SESSÃO do Ícone*/}
-            <List component={"nav"} sx={{ color: "yellow" }}>
+            <List component={"nav"}>
               <AppIcon
                 text="Home"
                 onClick={() => handleIconOnClick("/home")}
