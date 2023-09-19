@@ -3,7 +3,6 @@ import { Header } from "../shared/components/Header/Header";
 import { useState } from "react";
 import { Button } from "../shared/components/Button";
 import { useAppTheme } from "../shared/hooks/UseAppTheme";
-import { useSidebar } from "../shared/hooks/UseSidebar";
 
 // let countClick = 0;
 
@@ -22,8 +21,6 @@ export const Home = () => {
   const [countClick, setCountClick] = useState(0);
 
   const { toggleTheme } = useAppTheme();
-
-  const { toggleSidebarOpen } = useSidebar();
 
   const incrementClickCount = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -47,11 +44,6 @@ export const Home = () => {
       ></Button>
 
       <br />
-
-      <Button
-        text="Clique aqui para ABRIR/FECHAR a Sidebar !"
-        onClick={toggleSidebarOpen}
-      ></Button>
 
       <h1>Minha página Home</h1>
 
