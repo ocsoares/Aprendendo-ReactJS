@@ -4,12 +4,15 @@ import { InputLogin } from "./components/InputLogin";
 import { ButtonLogin } from "./components/ButtonLogin";
 import { Button } from "../../shared/components/Button";
 import { useAppTheme } from "../../shared/hooks/UseAppTheme";
+import { useSidebar } from "../../shared/hooks/UseSidebar";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const routerNavigate = useNavigate();
+
+  const { toggleSidebarOpen } = useSidebar();
 
   const handleClick = () => {
     routerNavigate("/home"); // FUNÇÃO para NAVEGAR para uma Rota Especificada !!!
@@ -29,6 +32,11 @@ export const Login = () => {
       <Button
         text="Clique aqui para ALTERAR o Tema de Cores !"
         onClick={toggleTheme}
+      ></Button>
+
+      <Button
+        text="Clique aqui para ABRIR/FECHAR a Sidebar !"
+        onClick={toggleSidebarOpen}
       ></Button>
 
       <h1>Rota de Login</h1>
