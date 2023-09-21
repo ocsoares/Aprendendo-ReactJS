@@ -1,4 +1,4 @@
-import { Box, IconButton, Typography, useTheme } from "@mui/material";
+import { Box, IconButton, Link, Typography, useTheme } from "@mui/material";
 import { PropsWithChildren } from "react";
 import { DensitySmall } from "@mui/icons-material";
 import { useSidebar } from "../hooks/UseSidebar";
@@ -27,16 +27,21 @@ export const PageBaseLayout = ({
         // justifyContent={"center"} // Posiciona no CENTRO do BOX !
         gap={1}
       >
-        <IconButton onClick={toggleSidebarOpen}>
+        <IconButton
+          onClick={toggleSidebarOpen}
+          sx={{ color: currentTheme.palette.primary.main }}
+        >
           <DensitySmall />
         </IconButton>
 
         {/* "Typography" é um Componente do MaterialUI para FONTES !!! */}
         {/* ----------------------------------------------------------------- */}
         {/* variant = APLICA o Estilo de determinada Tag HTML ! */}
-
-        {/*  TORNAR O TITLE CLICÁVEL PRA HOME ! */}
-        <Typography variant="h3">{title}</Typography>
+        <Link href="/home" underline="none">
+          <Typography variant="h3" color={currentTheme.palette.primary.main}>
+            {title}
+          </Typography>
+        </Link>
       </Box>
 
       <Box>{children}</Box>
