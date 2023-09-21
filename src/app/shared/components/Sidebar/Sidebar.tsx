@@ -8,10 +8,11 @@ import {
 } from "@mui/material";
 import { PropsWithChildren, useEffect, useState } from "react";
 import { Box } from "@mui/system";
-import { Home, Login } from "@mui/icons-material";
+import { Brightness4, Home, Login } from "@mui/icons-material";
 import { AppIcon } from "./components/AppIcon";
 import { useSidebar } from "../../hooks/UseSidebar";
 import { useNavigate } from "react-router-dom";
+import { useAppTheme } from "../../hooks/UseAppTheme";
 
 export const Sidebar = ({ children }: PropsWithChildren) => {
   // Hook do MaterialUI para pegar o Tema ATUAL que está sendo Aplicado,
@@ -25,6 +26,8 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
   );
 
   const { isSidebarOpen, toggleSidebarOpen } = useSidebar();
+
+  const { toggleTheme } = useAppTheme();
 
   const navigateToRoute = useNavigate();
 
@@ -139,16 +142,18 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
               >
                 <Login />
               </AppIcon>
-
-              {/* <AppIcon text="Toggle item">
-                <Brightness4 />
-              </AppIcon> */}
             </List>
+          </Box>
+
+          <Box>
+            <AppIcon text="Toggle theme" onClick={toggleTheme}>
+              <Brightness4 />
+            </AppIcon>
           </Box>
         </Box>
       </Drawer>
 
-      {/* COMPONENTES Filhos !! */}
+      {/* COMPONENTES Filhos, nesse caso, Componentes das ROTAS !! */}
       <Box height={"100vh"}>{children}</Box>
     </>
   );

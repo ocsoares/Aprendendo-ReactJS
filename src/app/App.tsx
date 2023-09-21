@@ -18,7 +18,10 @@ function App() {
         isso vai APLICAR a Sidebar para TODAS as Rotas !! */}
           <BrowserRouter>
             <Sidebar>
-              <PageBaseLayout title="Home">
+              <PageBaseLayout
+                title="Home"
+                toolbar={<>Barra de ferramentas boy !</>}
+              >
                 Apenas o Children
                 <Routes />
               </PageBaseLayout>

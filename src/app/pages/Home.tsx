@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Header } from "../shared/components/Header/Header";
 import { useState } from "react";
 import { Button } from "../shared/components/Button";
-import { useAppTheme } from "../shared/hooks/UseAppTheme";
+// import { useAppTheme } from "../shared/hooks/UseAppTheme";
 
 // let countClick = 0;
 
@@ -20,7 +20,7 @@ export const Home = () => {
   // outro que retorna uma Função que SETA um NOVO Valor para o Próprio Valor !!!
   const [countClick, setCountClick] = useState(0);
 
-  const { toggleTheme } = useAppTheme();
+  // const { toggleTheme } = useAppTheme();
 
   const incrementClickCount = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
@@ -38,10 +38,10 @@ export const Home = () => {
 
   return (
     <div>
-      <Button
+      {/* <Button
         text="Clique aqui para ALTERAR o Tema de Cores !"
         onClick={toggleTheme}
-      ></Button>
+      ></Button> */}
 
       <br />
 
