@@ -27,7 +27,7 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
 
   const { isSidebarOpen, toggleSidebarOpen } = useSidebar();
 
-  const { toggleTheme } = useAppTheme();
+  const { themeName, toggleTheme } = useAppTheme();
 
   const navigateToRoute = useNavigate();
 
@@ -149,7 +149,10 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
           ALTURA definida !!*/}
           {/* OBS: Pode-se Observar isso Colocando um "height={"100vh"}" no Box !!! */}
           <Box>
-            <AppIcon text="Toggle theme" onClick={toggleTheme}>
+            <AppIcon
+              text={themeName === "dark" ? "Light mode" : "Dark mode"}
+              onClick={toggleTheme}
+            >
               <Brightness4 />
             </AppIcon>
           </Box>
