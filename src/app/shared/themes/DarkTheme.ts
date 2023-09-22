@@ -3,6 +3,7 @@ import { purple, teal, deepPurple, grey } from "@mui/material/colors";
 
 export const DarkTheme = createTheme({
   palette: {
+    // Adiciona CONTRASTES Automaticamente de acordo com as Cores DEFINIDAS !!
     mode: "dark",
     // Cores PRIMÁRIAS são as Cores PRINCIPAIS da Aplicação
     primary: {
