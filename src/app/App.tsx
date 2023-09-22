@@ -5,6 +5,7 @@ import { LoggedUserEmailProvider } from "./shared/contexts/LoggedUserEmail";
 import { SidebarProvider } from "./shared/contexts/SidebarContext";
 import { AppThemeProvider } from "./shared/contexts/ThemeContext";
 import { PageBaseLayout } from "./shared/layouts/PageBaseLayout";
+import { Toolbar } from "./shared/components/Toolbar/Toolbar";
 
 function App() {
   return (
@@ -18,10 +19,7 @@ function App() {
         isso vai APLICAR a Sidebar para TODAS as Rotas !! */}
           <BrowserRouter>
             <Sidebar>
-              <PageBaseLayout
-                title="Home"
-                toolbar={<>Barra de ferramentas boy !</>}
-              >
+              <PageBaseLayout title="Home" toolbar={<Toolbar />}>
                 Apenas o Children
                 <Routes />
               </PageBaseLayout>
