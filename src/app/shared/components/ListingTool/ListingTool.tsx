@@ -1,5 +1,6 @@
 import { Add } from "@mui/icons-material";
-import { Box, Button, Paper, TextField, useTheme } from "@mui/material";
+import { Box, Paper, TextField, useTheme } from "@mui/material";
+import { ToolButton } from "../ToolButton";
 
 // Tudo Opcional para Tornar a "ListingTool" Altamente CUSTOMIZÁVEL !!!
 interface IListingToolProps {
@@ -53,18 +54,11 @@ export const ListingTool = ({
       {/* justifyContent end = Só vai FUNCIONAR com o "flex 1" ATIVADO !! */}
       <Box flex={1} display={"flex"} justifyContent={"end"}>
         {showSearchButton && (
-          <Button
-            color="primary"
-            variant="contained"
-            // Propriedades BOOLEANO que forem "true" pode passar DIRETO, como o "disableElevation" !!!
-            // disableElevation // Isso DESATIVA o Efeito de SOMBRA do Botão !!!
-
-            // ADICIONA um ICON no Final DENTRO do Botão !!
+          <ToolButton
             endIcon={<Add />}
-            onClick={onClickSearchButton}
-          >
-            {searchButtonText}
-          </Button>
+            onClick={() => onClickSearchButton?.()}
+            text={searchButtonText}
+          />
         )}
       </Box>
     </Box>
