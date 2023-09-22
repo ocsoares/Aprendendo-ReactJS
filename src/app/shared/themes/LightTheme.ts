@@ -3,6 +3,7 @@ import { purple, teal, deepPurple } from "@mui/material/colors";
 
 export const LightTheme = createTheme({
   palette: {
+    mode: "light",
     primary: {
       main: "#36175E",
       dark: "#261042",

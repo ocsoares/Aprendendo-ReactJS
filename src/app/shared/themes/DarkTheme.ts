@@ -3,6 +3,7 @@ import { purple, teal, deepPurple, grey } from "@mui/material/colors";
 
 export const DarkTheme = createTheme({
   palette: {
+    mode: "dark",
     // Cores PRIMÁRIAS são as Cores PRINCIPAIS da Aplicação
     primary: {
       main: "#3D1870", // Cores por exemplo dos Botões !!
