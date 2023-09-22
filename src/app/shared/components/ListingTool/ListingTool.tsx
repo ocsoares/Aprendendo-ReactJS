@@ -12,7 +12,7 @@ interface IToolbarProps {
   onClickSearchButton?: () => void;
 }
 
-export const Toolbar = ({
+export const ListingTool = ({
   showSearchInput = true,
   searchInputValue = "",
   onChangeSearchValue,

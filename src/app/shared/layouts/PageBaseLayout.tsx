@@ -5,14 +5,14 @@ import { useSidebar } from "../hooks/UseSidebar";
 
 interface IPageBaseLayoutProps {
   title: string;
-  toolbar?: ReactNode;
+  listingTool?: ReactNode;
 }
 
 // Esse Layout vai aparecer em TODAS as Rotas, porque vai ser o Elemento PAI das Rotas !!
 export const PageBaseLayout = ({
   children,
   title,
-  toolbar,
+  listingTool: toolbar,
 }: PropsWithChildren<IPageBaseLayoutProps>) => {
   const currentTheme = useTheme();
   const { toggleSidebarOpen } = useSidebar();
