@@ -145,6 +145,9 @@ export const Sidebar = ({ children }: PropsWithChildren) => {
             </List>
           </Box>
 
+          {/* Esse Box aparece LÁ EMBAIXO, como se fosse um "footer", porque NÃO tem
+          ALTURA definida !!*/}
+          {/* OBS: Pode-se Observar isso Colocando um "height={"100vh"}" no Box !!! */}
           <Box>
             <AppIcon text="Toggle theme" onClick={toggleTheme}>
               <Brightness4 />
