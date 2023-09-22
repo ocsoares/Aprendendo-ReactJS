@@ -1,8 +1,8 @@
 import { Add } from "@mui/icons-material";
 import { Box, Button, Paper, TextField, useTheme } from "@mui/material";
 
-// Tudo Opcional para Tornar a "Toolbar" Altamente CUSTOMIZÁVEL !!!
-interface IToolbarProps {
+// Tudo Opcional para Tornar a "ListingTool" Altamente CUSTOMIZÁVEL !!!
+interface IListingToolProps {
   showSearchInput?: boolean;
   searchInputValue?: string;
   onChangeSearchValue?: (newValue: string) => void;
@@ -20,7 +20,7 @@ export const ListingTool = ({
   showSearchButton = true,
   searchButtonText = "Pesquisar",
   onClickSearchButton,
-}: IToolbarProps) => {
+}: IListingToolProps) => {
   const currentTheme = useTheme();
 
   return (

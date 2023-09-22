@@ -12,7 +12,7 @@ interface IPageBaseLayoutProps {
 export const PageBaseLayout = ({
   children,
   title,
-  listingTool: toolbar,
+  listingTool,
 }: PropsWithChildren<IPageBaseLayoutProps>) => {
   const currentTheme = useTheme();
   const { toggleSidebarOpen } = useSidebar();
@@ -50,7 +50,7 @@ export const PageBaseLayout = ({
         </Link>
       </Box>
 
-      <Box>{toolbar}</Box>
+      <Box>{listingTool}</Box>
 
       {/* overflow auto = Quando o Children for muito GRANDE ou ter VÁRIOS Componentes, isso
 vai permitir que APENAS essa Parte aqui tenha SCROLL, e NÃO os outros Elementos !!! */}
