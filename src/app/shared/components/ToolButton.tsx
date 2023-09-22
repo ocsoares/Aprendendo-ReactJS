@@ -6,7 +6,7 @@ interface IToolButtonProps {
   variant?: "contained" | "outlined" | "text";
   startIcon?: ReactNode;
   endIcon?: ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   text: string;
 }
 
