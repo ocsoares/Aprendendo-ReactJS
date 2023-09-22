@@ -5,6 +5,7 @@ export const DarkTheme = createTheme({
   palette: {
     // Adiciona CONTRASTES Automaticamente de acordo com as Cores DEFINIDAS !!
     mode: "dark",
+
     // Cores PRIMÁRIAS são as Cores PRINCIPAIS da Aplicação
     primary: {
       main: "#3D1870", // Cores por exemplo dos Botões !!
@@ -22,6 +23,17 @@ export const DarkTheme = createTheme({
     background: {
       default: "#1F1032",
       paper: "#2C203B", // Usado como Cores para CONTEÚDOS, como Sidebars, Cartões e Painéis !!
+    },
+  },
+  typography: {
+    // Altera TODAS as Tipografias do MaterialUI de uma só vez, INCLUSIVE os
+    // Textos DENTRO dos Ícones !!
+    // allVariants: {
+    //   color: "red",
+    // },
+
+    h3: {
+      color: "#3D2670",
     },
   },
 });

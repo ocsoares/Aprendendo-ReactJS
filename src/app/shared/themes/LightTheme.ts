@@ -21,4 +21,9 @@ export const LightTheme = createTheme({
       paper: "#382652",
     },
   },
+  typography: {
+    h3: {
+      color: "#2A1545",
+    },
+  },
 });

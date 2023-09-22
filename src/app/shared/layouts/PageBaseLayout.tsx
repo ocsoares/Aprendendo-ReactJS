@@ -1,16 +1,18 @@
 import { Box, IconButton, Link, Typography, useTheme } from "@mui/material";
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, ReactNode } from "react";
 import { DensitySmall } from "@mui/icons-material";
 import { useSidebar } from "../hooks/UseSidebar";
 
 interface IPageBaseLayoutProps {
   title: string;
+  toolbar?: ReactNode;
 }
 
 // Esse Layout vai aparecer em TODAS as Rotas, porque vai ser o Elemento PAI das Rotas !!
 export const PageBaseLayout = ({
   children,
   title,
+  toolbar,
 }: PropsWithChildren<IPageBaseLayoutProps>) => {
   const currentTheme = useTheme();
   const { toggleSidebarOpen } = useSidebar();
@@ -38,13 +40,23 @@ export const PageBaseLayout = ({
         {/* ----------------------------------------------------------------- */}
         {/* variant = APLICA o Estilo de determinada Tag HTML ! */}
         <Link href="/home" underline="none">
-          <Typography variant="h3" color={currentTheme.palette.primary.main}>
+          <Typography
+            variant="h3"
+            whiteSpace={"nowrap"} // EVITA o Texto de QUEBRAR LINHA se for Muito Grande
+            textOverflow={"ellipsis"} // Se for MUITO Grande e NÃO Quebrar Linha, isso vai por um "(...)" no FINAL do Texto !!
+          >
             {title}
           </Typography>
         </Link>
       </Box>
 
-      <Box>{children}</Box>
+      <Box>{toolbar}</Box>
+
+      {/* overflow auto = Quando o Children for muito GRANDE ou ter VÁRIOS Componentes, isso
+vai permitir que APENAS essa Parte aqui tenha SCROLL, e NÃO os outros Elementos !!! */}
+      <Box flex={1} overflow={"auto"}>
+        {children}
+      </Box>
     </Box>
   );
 };
