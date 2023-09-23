@@ -6,6 +6,7 @@ import { useSidebar } from "../hooks/UseSidebar";
 interface IPageBaseLayoutProps {
   title: string;
   listingTool?: ReactNode;
+  toolbar?: ReactNode;
 }
 
 // Esse Layout vai aparecer em TODAS as Rotas, porque vai ser o Elemento PAI das Rotas !!
@@ -13,6 +14,7 @@ export const PageBaseLayout = ({
   children,
   title,
   listingTool,
+  toolbar,
 }: PropsWithChildren<IPageBaseLayoutProps>) => {
   const currentTheme = useTheme();
   const { toggleSidebarOpen } = useSidebar();
@@ -51,6 +53,7 @@ export const PageBaseLayout = ({
       </Box>
 
       <Box>{listingTool}</Box>
+      <Box>{toolbar}</Box>
 
       {/* overflow auto = Quando o Children for muito GRANDE ou ter VÁRIOS Componentes, isso
 vai permitir que APENAS essa Parte aqui tenha SCROLL, e NÃO os outros Elementos !!! */}

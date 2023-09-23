@@ -6,6 +6,7 @@ import { SidebarProvider } from "./shared/contexts/SidebarContext";
 import { AppThemeProvider } from "./shared/contexts/ThemeContext";
 import { PageBaseLayout } from "./shared/layouts/PageBaseLayout";
 import { ListingTool } from "./shared/components/ListingTool/ListingTool";
+import { Toolbar } from "./shared/components/Toolbar/Toolbar";
 
 function App() {
   return (
@@ -19,7 +20,11 @@ function App() {
         isso vai APLICAR a Sidebar para TODAS as Rotas !! */}
           <BrowserRouter>
             <Sidebar>
-              <PageBaseLayout title="Home" listingTool={<ListingTool />}>
+              <PageBaseLayout
+                title="Home"
+                listingTool={<ListingTool />}
+                toolbar={<Toolbar />}
+              >
                 Apenas o Children
                 <Routes />
               </PageBaseLayout>
