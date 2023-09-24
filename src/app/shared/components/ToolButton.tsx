@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { ReactNode } from "react";
 
 interface IToolButtonProps {
@@ -30,7 +30,17 @@ export const ToolButton = ({
       endIcon={endIcon}
       onClick={onClick}
     >
-      {text}
+      {/* whiteSpace - nowrap = EVITA, ao ENCOLHER a Tela, que os Textos dos Botões NÃO Quebrem Linha !!!  */}
+      {/* textOverflow - ellipsis = Ao ENCOLHER a Tela, coloca TRÊS Pontos no FINAL do Texto (...) !!! */}
+      {/* overflow - hidden = Ao ENCOLHER a Tela, ENCOLHE ao MÁXIMO o Texto para caber DENTRO dos Botões !!!*/}
+      <Typography
+        variant="button"
+        whiteSpace={"nowrap"}
+        textOverflow={"ellipsis"}
+        overflow={"hidden"}
+      >
+        {text}
+      </Typography>
     </Button>
   );
 };
