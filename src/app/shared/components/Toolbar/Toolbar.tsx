@@ -3,10 +3,44 @@ import { Box, Divider, Paper, useTheme } from "@mui/material";
 import { ToolButton } from "../ToolButton";
 
 interface IToolbarProps {
-  bla?: any;
+  textSaveButton?: string;
+  textSaveAndReturnButton?: string;
+  textDeleteButton?: string;
+  textNewButton?: string;
+  textBackButton?: string;
+
+  showSaveButton?: boolean;
+  showSaveAndReturnButton?: boolean;
+  showDeleteButton?: boolean;
+  showNewButton?: boolean;
+  showBackButton?: boolean;
+
+  onClickSaveButton?: () => void;
+  onClickSaveAndReturnButton?: () => void;
+  onClickDeleteButton?: () => void;
+  onClickNewButton?: () => void;
+  onClickBackButton?: () => void;
 }
 
-export const Toolbar = ({ bla }: IToolbarProps) => {
+export const Toolbar = ({
+  textSaveButton = "Save",
+  textSaveAndReturnButton = "Save and return",
+  textDeleteButton = "Delete",
+  textNewButton = "New",
+  textBackButton = "Back",
+
+  showSaveButton = true,
+  showSaveAndReturnButton = false,
+  showDeleteButton = true,
+  showNewButton = true,
+  showBackButton = true,
+
+  onClickSaveButton,
+  onClickSaveAndReturnButton,
+  onClickDeleteButton,
+  onClickNewButton,
+  onClickBackButton,
+}: IToolbarProps) => {
   const currentTheme = useTheme();
 
   return (
@@ -20,43 +54,55 @@ export const Toolbar = ({ bla }: IToolbarProps) => {
       display={"flex"}
       alignItems={"center"}
     >
-      {/* TIRAR  !!!! */}
-      {bla}
+      {showSaveButton && (
+        <ToolButton
+          startIcon={<Save />}
+          text={textSaveButton}
+          onClick={onClickSaveButton}
+        />
+      )}
 
-      <ToolButton
-        startIcon={<Save />}
-        // onClick={onClickSearchButton}
-        text={"Save"}
-      />
-      <ToolButton
-        startIcon={<Save />}
-        text={"Save and return"}
-        variant="outlined"
-        color="secondary"
-      />
+      {showSaveAndReturnButton && (
+        <ToolButton
+          startIcon={<Save />}
+          text={textSaveAndReturnButton}
+          onClick={onClickSaveAndReturnButton}
+          variant="outlined"
+          color="secondary"
+        />
+      )}
 
-      <ToolButton
-        startIcon={<Delete />}
-        text={"Delete"}
-        variant="outlined"
-        color="secondary"
-      />
+      {showDeleteButton && (
+        <ToolButton
+          startIcon={<Delete />}
+          text={textDeleteButton}
+          onClick={onClickDeleteButton}
+          variant="outlined"
+          color="secondary"
+        />
+      )}
 
-      <ToolButton
-        startIcon={<Add />}
-        text={"New"}
-        variant="outlined"
-        color="secondary"
-      />
+      {showNewButton && (
+        <ToolButton
+          startIcon={<Add />}
+          text={textNewButton}
+          onClick={onClickNewButton}
+          variant="outlined"
+          color="secondary"
+        />
+      )}
 
       <Divider variant="middle" orientation="vertical" sx={{ height: "65%" }} />
 
-      <ToolButton
-        startIcon={<ArrowBack />}
-        text={"Back"}
-        variant="outlined"
-        color="secondary"
-      />
+      {showBackButton && (
+        <ToolButton
+          startIcon={<ArrowBack />}
+          text={textBackButton}
+          onClick={onClickBackButton}
+          variant="outlined"
+          color="secondary"
+        />
+      )}
     </Box>
   );
 };

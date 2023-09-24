@@ -23,7 +23,7 @@ function App() {
               <PageBaseLayout
                 title="Home"
                 listingTool={<ListingTool />}
-                toolbar={<Toolbar />}
+                toolbar={<Toolbar showSaveAndReturnButton />}
               >
                 Apenas o Children
                 <Routes />
