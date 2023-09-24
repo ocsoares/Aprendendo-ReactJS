@@ -15,7 +15,7 @@ export const DarkTheme = createTheme({
     },
     // Cores SECUNDÁRIAS são usadas em, por exemplo, Auto-Complete !!
     secondary: {
-      main: teal["900"],
+      main: grey["500"],
       dark: teal["800"],
       light: teal["500"],
       contrastText: deepPurple["200"],

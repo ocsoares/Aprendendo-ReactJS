@@ -1,4 +1,4 @@
-import { Add } from "@mui/icons-material";
+import { Add, ArrowBack, Delete, Save } from "@mui/icons-material";
 import { Box, Divider, Paper, useTheme } from "@mui/material";
 import { ToolButton } from "../ToolButton";
 
@@ -16,32 +16,47 @@ export const Toolbar = ({ bla }: IToolbarProps) => {
       marginX={1}
       padding={1}
       paddingX={2}
-      gap={1}
+      gap={2}
       display={"flex"}
       alignItems={"center"}
     >
       {/* TIRAR  !!!! */}
       {bla}
 
-      {/* MUDAR OS ÍCONES !!!!!!!!!!!!!!!! ---------------- */}
-
-      {/* MUDAR as CORES !!!!!!!! */}
-
       <ToolButton
-        startIcon={<Add />}
+        startIcon={<Save />}
         // onClick={onClickSearchButton}
         text={"Save"}
       />
-      <ToolButton startIcon={<Add />} text={"Save and return"} />
+      <ToolButton
+        startIcon={<Save />}
+        text={"Save and return"}
+        variant="outlined"
+        color="secondary"
+      />
 
-      <ToolButton startIcon={<Add />} text={"Delete"} />
+      <ToolButton
+        startIcon={<Delete />}
+        text={"Delete"}
+        variant="outlined"
+        color="secondary"
+      />
 
-      <ToolButton startIcon={<Add />} text={"New"} />
+      <ToolButton
+        startIcon={<Add />}
+        text={"New"}
+        variant="outlined"
+        color="secondary"
+      />
 
-      {/* VER um jeito MELHOR do ESTILO ... */}
-      <Divider variant="middle" orientation="vertical" />
+      <Divider variant="middle" orientation="vertical" sx={{ height: "65%" }} />
 
-      <ToolButton startIcon={<Add />} text={"Back"} />
+      <ToolButton
+        startIcon={<ArrowBack />}
+        text={"Back"}
+        variant="outlined"
+        color="secondary"
+      />
     </Box>
   );
 };
