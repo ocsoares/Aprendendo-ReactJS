@@ -35,6 +35,12 @@ interface IToolbarProps {
   onClickBackButton?: () => void;
 }
 
+// Isso aqui EMBAIXO adiciona uma DESCRIÇÃO à algo no VSCode quando passa o MOUSE
+// por CIMA ou quando SELECIONA com "CTRL + Espaço" !!!
+// --------------------------------------------------------------------------------
+/**
+ * Toolbar component with several customizable buttons
+ */
 export const Toolbar = ({
   textSaveButton = "Save",
   textSaveAndReturnButton = "Save and return",
