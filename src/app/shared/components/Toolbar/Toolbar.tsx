@@ -1,5 +1,12 @@
 import { Add, ArrowBack, Delete, Save } from "@mui/icons-material";
-import { Box, Divider, Paper, Skeleton, useTheme } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Paper,
+  Skeleton,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { ToolButton } from "../ToolButton";
 
 interface IToolbarProps {
@@ -55,6 +62,14 @@ export const Toolbar = ({
 }: IToolbarProps) => {
   const currentTheme = useTheme();
 
+  const isSmallerThanSmallScreen = useMediaQuery(
+    currentTheme.breakpoints.down("sm"),
+  );
+
+  const isSmallerThanMediumScreen = useMediaQuery(
+    currentTheme.breakpoints.down("md"),
+  );
+
   return (
     <Box
       component={Paper}
@@ -77,19 +92,25 @@ export const Toolbar = ({
       {/* Isso vai no LUGAR do BOTÃO quando ele estiver, por algum Motivo, CARREGANDO !!! */}
       {showSaveButtonLoading && <Skeleton width={91.83} height={61} />}
 
-      {showSaveAndReturnButton && !showSaveAndReturnButtonLoading && (
-        <ToolButton
-          startIcon={<Save />}
-          text={textSaveAndReturnButton}
-          onClick={onClickSaveAndReturnButton}
-          variant="outlined"
-          color="secondary"
-        />
-      )}
+      {/* isSmallerThan... = Para REMOVER o Botão quando MENOR que algumas dessas Medidas, 
+          porque isso vai AJUDAR a Manter a Responsividade e NÃO Achatar tanto os Botões !!!
+      */}
+      {showSaveAndReturnButton &&
+        !showSaveAndReturnButtonLoading &&
+        !isSmallerThanSmallScreen &&
+        !isSmallerThanMediumScreen && (
+          <ToolButton
+            startIcon={<Save />}
+            text={textSaveAndReturnButton}
+            onClick={onClickSaveAndReturnButton}
+            variant="outlined"
+            color="secondary"
+          />
+        )}
 
-      {showSaveAndReturnButtonLoading && (
-        <Skeleton width={184.29} height={60.2} />
-      )}
+      {showSaveAndReturnButtonLoading &&
+        !isSmallerThanSmallScreen &&
+        !isSmallerThanMediumScreen && <Skeleton width={184.29} height={60.2} />}
 
       {showDeleteButton && !showDeleteButtonLoading && (
         <ToolButton
@@ -103,7 +124,9 @@ export const Toolbar = ({
 
       {showDeleteButtonLoading && <Skeleton width={107.12} height={60.2} />}
 
-      {showNewButton && !showNewButtonLoading && (
+      {/* Escondendo o Botão "new" se "isSmallerThanSmallScreen" for "true" por causa Responsividade e 
+      porque TAMBÉM vai ter OUTRO Botão New em uma Interface semelhante !! */}
+      {showNewButton && !showNewButtonLoading && !isSmallerThanSmallScreen && (
         <ToolButton
           startIcon={<Add />}
           text={textNewButton}
@@ -113,9 +136,24 @@ export const Toolbar = ({
         />
       )}
 
-      {showNewButtonLoading && <Skeleton width={86.98} height={60.2} />}
+      {showNewButtonLoading && !isSmallerThanSmallScreen && (
+        <Skeleton width={86.98} height={60.2} />
+      )}
 
-      <Divider variant="middle" orientation="vertical" sx={{ height: "65%" }} />
+      {/* Só vai Mostrar aquela Linha Divisória entre os Botões "new" e o "back" se "showBackButton" 
+      for "TRUE" e se ALGUM dos OUTROS Botões forem "TRUE" !!!
+      */}
+      {showBackButton &&
+        (showSaveButton ||
+          showSaveAndReturnButton ||
+          showDeleteButton ||
+          showNewButton) && (
+          <Divider
+            variant="middle"
+            orientation="vertical"
+            sx={{ height: "65%" }}
+          />
+        )}
 
       {showBackButton && !showBackButtonLoading && (
         <ToolButton
